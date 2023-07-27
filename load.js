@@ -13,14 +13,14 @@
 	   //if (lan==="en") languageSelect.selectedIndex = 0;
 	  // if (lan==="zh") languageSelect.selectedIndex = 1;
 	   var url=getLastPartOfWebAddress();
-	   if (url==="") url="index.html";
+	   if (url==="" || url="index") url="index.html";
 	   if (lan==="") lan="en";   // default as english
 
-	   if (lan==="zh" && getLastPartOfWebAddress()==="index.html"){
+	   if (lan==="zh" && url==="index.html"){
 	      window.location.href = "https://lizhihome.github.io/NX/index_zh.html";
 		  languageSelect.selectedIndex = 1;
 	   }
-	   if ( lan==="en" && getLastPartOfWebAddress()==="index_zh.html"){
+	   if ( lan==="en" && url==="index_zh.html"){
 	      window.location.href = "https://lizhihome.github.io/NX/index.html";
 		  languageSelect.selectedIndex = 0;
 	   }	
