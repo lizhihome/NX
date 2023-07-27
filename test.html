@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Last Part of Web Address</title>
+</head>
+<body>
+
+<script>
+    // Function to get the last part (name) of the web address
+    function getLastPartOfWebAddress() {
+        var fullURL = window.location.href;
+        var urlParts = fullURL.split('/');
+        var lastPart = urlParts[urlParts.length - 1];
+        return lastPart;
+    }
+
+    // Example usage:
+    var lastName = getLastPartOfWebAddress();
+    console.log("Last part of the web address:", lastName);
+</script>
+
+</body>
+</html>

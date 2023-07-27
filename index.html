@@ -2,26 +2,7 @@
 <html>
 <body>
 
-<script>
-    // Automatically start the URL when the page loads
-    window.onload = function() {
-       // window.location.href = "http://129.146.69.22/";
-	   var lan=localStorage.getItem("language", "selectedLanguage");
-	   if (lan==="zh"){
-	      window.location.href = "https://lizhihome.github.io/NX/index_zh.html";
-	   }
-	   else {
-	      window.location.href = "https://lizhihome.github.io/NX/";
-	   }
-    }
-	
-	function setlanguage(){
-		var languageSelect = document.getElementById("languageSelect");
-		var selectedLanguage = languageSelect.value;	
-		localStorage.setItem("language", "selectedLanguage");
-	}
-
-</script>
+<script src="load.js"></script>
 
 <H2> NX Tooling Training Material </H2>
 
