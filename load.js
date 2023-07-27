@@ -13,7 +13,7 @@
 	   //if (lan==="en") languageSelect.selectedIndex = 0;
 	  // if (lan==="zh") languageSelect.selectedIndex = 1;
 	   var url=getLastPartOfWebAddress();
-	   if (url==="" || url="index") url="index.html";
+	   if (url==="" || url==="index") url="index.html";
 	   if (lan==="") lan="en";   // default as english
 
 	   if (lan==="zh" && url==="index.html"){
