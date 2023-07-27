@@ -17,7 +17,7 @@
 	   if (lan==="") lan="en";   // default as english
 
 	   if (lan==="zh" && url==="index.html"){
-	      window.location.href = "https://lizhihome.github.io/NX/index_zh.html/";
+	      window.location.href = "https://lizhihome.github.io/NX/index_zh.html";
 //	      window.location.href = "file:///C:/Users/lizhi/Documents/GitHub/NX_Mold_Wizard/index_zh.html";
 		  languageSelect.selectedIndex = 1;
 	   }
