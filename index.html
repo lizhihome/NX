@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<style>
+  .twng {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .twng th,
+  .twng td {
+    padding: 3px;
+    border: 0px solid #ddd;
+    vertical-align: top;
+    text-align: left;
+  }
+  
+    .twng th:first-child, .twng td:first-child {
+      width: 250px;
+    }
+
+    .twng th:last-child, .twng td:last-child {
+      width: calc(100% - 250px);
+    }  
+    .twng tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .twng tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+</style>
+<head>
+  <title>File List</title>
+
+  <script>
+      var video = document.createElement('video');
+      var audio = document.createElement('audio');
+
+      //mycallback("Mw-Automation-2023.mp4");
+
+      function mycallback(fileName) {
+        var html = document.getElementById('html');
+        html.innerHTML = "";
+
+        if (fileName.toLowerCase().endsWith(".pdf")) {
+          var iframe = document.createElement("iframe");
+		  
+		  var floc = fileName.slice(0, fileName.lastIndexOf(".pdf"));
+		  
+		  if (localStorage.getItem("language")==="zh"){
+            iframe.src = "..\\"+floc+"\\"+floc+"_zh.pdf#page=3";
+		  }
+		  else {
+            iframe.src = "..\\"+floc+"\\"+floc+".pdf#page=3";	  
+		  }
+          iframe.width = "100%";
+          iframe.height = "800px";
+          html.appendChild(iframe);
+		  // iframe.src = iframe.src;
+        } else {    //mp4 play
+          video.src = fileName;
+          video.controls = true;
+          video.autoplay = true;
+          video.style.width = "100%"
+		  
+          html.appendChild(video);
+		  
+		  if (localStorage.getItem("language")==="zh") audio.src = fileName.slice(0, fileName.lastIndexOf(".mp4")) + "_zh.mp3";
+		  else audio.src = fileName.slice(0, fileName.lastIndexOf(".mp4")) + "_en.mp3";
+          audio.autoplay = true;
+          html.appendChild(audio);
+        }
+      }
+	  
+        video.onplay = function() {
+            audio.play();
+        };
+
+        video.onpause = function() {
+            audio.pause();
+        };
+
+        video.onseeked = function() {
+            audio.currentTime = video.currentTime;
+        };	  
+  </script>
+
+</head>
+<body  onload="mycallback('Mw-Automation-2023.mp4')">
+  <table class='twng'>
+  <td>
+	  <table>
+		<tr><th>File Name</th><th>Type</th></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)" >Mw-Automation-2023.mp4</a></td><td></td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX1200_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX1201_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX1202_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX1847_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX1872_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX1899_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX1926_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX1953_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX1980_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX2007_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX2206_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX2212_WNG.pdf</a></td><td>pdf</td></tr>
+		<tr><td><a href='#' onClick="mycallback(this.innerHTML)">MW_NX2306_WNG.pdf</a></td><td>pdf</td></tr>
+	  </table>
+	</td>
+  <td> <div id='html' style="width: 100%;"></div></td>
+  </table>
+</body>
+</html>
+
