@@ -10,13 +10,13 @@
 	function reload_html_lan() {
 	   var lan=localStorage.getItem("language");
 	   var languageSelect = document.getElementById("languageSelect");
-	   if (lan==="en") languageSelect.selectedIndex = 0;
-	   if (lan==="zh") languageSelect.selectedIndex = 1;
+	   //if (lan==="en") languageSelect.selectedIndex = 0;
+	  // if (lan==="zh") languageSelect.selectedIndex = 1;
 	   
 	   if (lan==="zh" && getLastPartOfWebAddress()==="index.html"){
 	      window.location.href = "https://lizhihome.github.io/NX/index_zh.html";
 	   }
-	   if (lan==="en" && getLastPartOfWebAddress()==="index_zh.html"){
+	   if ((lan==="en" || lan==="" ) && getLastPartOfWebAddress()==="index_zh.html"){
 	      window.location.href = "https://lizhihome.github.io/NX/index.html";
 	   }	
 	}
